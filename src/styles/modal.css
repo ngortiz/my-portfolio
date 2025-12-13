@@ -1,0 +1,9 @@
+.modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.55); display: grid; place-items: center; z-index: 50; }
+.modal-card { width: min(560px, 92vw); background: #ffffff; border-radius: 16px; box-shadow: 0 20px 60px rgba(2, 6, 23, 0.35); padding: 24px; }
+.modal-card h3 { margin: 0 0 8px; font-size: 24px; }
+.modal-card p { margin: 0 0 16px; color: #475569; }
+.skills-list { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 18px; }
+.skills-list li { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px; padding: 8px 12px; font-size: 14px; }
+.modal-actions { display: flex; justify-content: flex-end; }
+.close-btn { appearance: none; border: none; border-radius: 10px; background: #0ea5e9; color: #fff; font-weight: 600; padding: 10px 14px; cursor: pointer; }
+.close-btn:hover { background: #0284c7; }

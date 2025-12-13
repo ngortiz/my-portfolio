@@ -1,0 +1,132 @@
+.tree-wrapper { width: 100%; display: grid; place-items: center; }
+.tree { position: relative; width: min(800px, 90vw); }
+.tree-image { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  /* Ocultar la estrella original del árbol */
+  clip-path: inset(8% 0 0 0);
+  margin-top: -8%;
+}
+
+.tree { --layer-img: 1; --layer-lights: 2; --layer-baubles: 3; --layer-star: 4; }
+.tree-image { position: relative; z-index: var(--layer-img); }
+
+/* Placeholder cuando aún no has reemplazado la imagen */
+.tree-image-placeholder { width: 100%; aspect-ratio: 3/4; display: grid; place-items: center; color: #64748b; border: 2px dashed #cbd5e1; border-radius: 18px; background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%); font-size: 16px; padding: 12px; text-align: center; }
+
+/* Estrella en la punta */
+ 
+
+/* Guirnalda de luces sobre el árbol */
+.tree-lights { position: absolute; inset: 0; pointer-events: none; z-index: var(--layer-lights); }
+.tree-lights span { 
+  position: absolute; 
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+  opacity: 0.9; 
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.tree-lights span:nth-child(5n+1) {
+  background: var(--christmas-gold);
+  box-shadow: 0 0 12px var(--christmas-gold), 0 0 24px rgba(255, 215, 0, 0.7);
+}
+.tree-lights span:nth-child(5n+2) {
+  background: var(--christmas-red);
+  box-shadow: 0 0 12px var(--christmas-red), 0 0 24px rgba(196, 30, 58, 0.7);
+}
+.tree-lights span:nth-child(5n+3) {
+  background: var(--christmas-green);
+  box-shadow: 0 0 12px var(--christmas-green), 0 0 24px rgba(22, 91, 51, 0.7);
+}
+.tree-lights span:nth-child(5n+4) {
+  background: var(--ice-blue);
+  box-shadow: 0 0 12px var(--ice-blue), 0 0 24px rgba(176, 224, 230, 0.7);
+}
+.tree-lights span:nth-child(5n) {
+  background: var(--aurora-purple);
+  box-shadow: 0 0 12px var(--aurora-purple), 0 0 24px rgba(157, 78, 221, 0.7);
+}
+
+@keyframes twinkle { 
+  0%, 100% { 
+    filter: brightness(0.8); 
+    opacity: 0.6; 
+    transform: scale(0.9);
+  } 
+  50% { 
+    filter: brightness(1.4); 
+    opacity: 1; 
+    transform: scale(1.1);
+  } 
+}
+
+/* Esferas posicionadas dentro del árbol */
+.tree-baubles { position: absolute; inset: 0; z-index: var(--layer-baubles); pointer-events: none; clip-path: polygon(50% 4%, 90% 34%, 76% 52%, 68% 74%, 50% 95%, 32% 74%, 24% 52%, 10% 34%); }
+.bauble-slot { position: absolute; transform: translate(-50%, -50%); }
+.bauble-slot .bauble { pointer-events: auto; }
+.bauble--on-tree { --size: 76px; }
+
+/* Tree base/stand */
+.tree-base {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  z-index: var(--layer-img);
+}
+
+.tree-trunk {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(180deg, #6B4423 0%, #4A2F1A 100%);
+  border-radius: 4px;
+  box-shadow: 
+    inset 2px 0 4px rgba(0, 0, 0, 0.3),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.tree-stand {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 25px;
+  background: linear-gradient(180deg, #8B0000 0%, #5C0000 100%);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+  border: 2px solid #FFD700;
+}
+
+.tree-stand::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.3), 
+    transparent
+  );
+  border-radius: 4px;
+}
+
+/* Regalos alrededor del árbol */
+.tree-gifts { position: absolute; inset: 0; z-index: var(--layer-baubles); pointer-events: none; }
+.gift-slot { position: absolute; transform: translate(-50%, -50%); }
+.gift-slot .gift { pointer-events: auto; }

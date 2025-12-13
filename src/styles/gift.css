@@ -1,0 +1,298 @@
+.gift-wrapper {
+  perspective: 800px;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+.gift-box {
+  position: relative;
+  width: 95px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Main gift body - glossy 3D style like reference */
+.gift-body {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  background: 
+    linear-gradient(135deg, 
+      color-mix(in oklab, var(--box-color) 100%, white 35%) 0%,
+      color-mix(in oklab, var(--box-color) 100%, white 20%) 20%,
+      var(--box-color) 45%,
+      color-mix(in oklab, var(--box-color) 100%, black 10%) 70%,
+      color-mix(in oklab, var(--box-color) 100%, black 25%) 100%
+    );
+  border-radius: 8px;
+  box-shadow: 
+    /* Main depth shadow */
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 5px 12px rgba(0, 0, 0, 0.3),
+    /* Top highlight for glossy effect */
+    inset 0 3px 8px rgba(255, 255, 255, 0.5),
+    inset 3px 0 8px rgba(255, 255, 255, 0.3),
+    /* Bottom shadow for depth */
+    inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+    inset -3px 0 8px rgba(0, 0, 0, 0.2),
+    /* Edge highlight */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  transform: translateZ(0);
+  overflow: visible;
+  position: relative;
+}
+
+/* Strong glossy shine effect */
+.gift-body::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 15%;
+  width: 40%;
+  height: 35%;
+  background: radial-gradient(ellipse at top left, 
+    rgba(255, 255, 255, 0.6) 0%, 
+    rgba(255, 255, 255, 0.3) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Animated shine on hover */
+.gift-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.gift-wrapper:hover .gift-body::after {
+  left: 150%;
+}
+
+/* Ribbon horizontal - shiny and dimensional */
+.gift-ribbon-h {
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 50%;
+  height: 18px;
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 40%) 0%,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 25%) 15%,
+    var(--ribbon-color) 50%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 15%) 85%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 35%) 100%
+  );
+  transform: translateY(-50%);
+  border-radius: 2px;
+  box-shadow: 
+    /* Depth */
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    /* Top shine */
+    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    /* Bottom shadow */
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    /* Edge definition */
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Ribbon vertical - shiny and dimensional */
+.gift-ribbon-v {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: 50%;
+  width: 18px;
+  background: linear-gradient(90deg,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 40%) 0%,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 25%) 15%,
+    var(--ribbon-color) 50%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 15%) 85%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 35%) 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 
+    /* Depth */
+    4px 0 8px rgba(0, 0, 0, 0.4),
+    /* Left shine */
+    inset 2px 0 4px rgba(255, 255, 255, 0.6),
+    /* Right shadow */
+    inset -2px 0 4px rgba(0, 0, 0, 0.4),
+    /* Edge definition */
+    inset 1px 0 0 rgba(255, 255, 255, 0.5),
+    inset -1px 0 0 rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Gift top with bow */
+.gift-top {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 25px;
+  z-index: 3;
+}
+
+/* Realistic bow like in reference image */
+.gift-bow {
+  position: relative;
+  width: 50px;
+  height: 22px;
+  margin: 0 auto;
+  background: radial-gradient(ellipse at center top,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 30%) 0%,
+    var(--ribbon-color) 60%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 20%) 100%
+  );
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.3);
+  transform: translateZ(5px);
+}
+
+/* Bow loops */
+.gift-bow::before,
+.gift-bow::after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  width: 28px;
+  height: 20px;
+  background: radial-gradient(ellipse,
+    color-mix(in oklab, var(--ribbon-color) 100%, white 25%) 0%,
+    var(--ribbon-color) 50%,
+    color-mix(in oklab, var(--ribbon-color) 100%, black 15%) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.35),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gift-bow::before {
+  left: -22px;
+  transform: rotate(-25deg) scaleX(1.1);
+}
+
+.gift-bow::after {
+  right: -22px;
+  transform: rotate(25deg) scaleX(1.1);
+}
+
+/* Icon badge on gift - crisp and clear */
+.gift-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.gift-icon svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.gift-wrapper:hover .gift-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    0 3px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.gift-wrapper:hover .gift-icon svg {
+  opacity: 1;
+}
+
+/* Realistic shadow */
+.gift-shadow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 10px;
+  background: radial-gradient(ellipse, 
+    rgba(0, 0, 0, 0.5) 0%, 
+    rgba(0, 0, 0, 0.25) 40%, 
+    transparent 75%
+  );
+  border-radius: 50%;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Label with Christmas font */
+.gift-label {
+  margin-top: 12px;
+  text-align: center;
+  font-family: var(--font-christmas);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.3);
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.gift-wrapper:hover .gift-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced hover effects */
+.gift-wrapper:hover .gift-box {
+  transform: translateY(-6px) scale(1.08) rotateY(5deg);
+  filter: brightness(1.12) saturate(1.15);
+}
+
+.gift-wrapper:hover .gift-body {
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 8px 18px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.4),
+    inset 0 3px 8px rgba(255, 255, 255, 0.6),
+    inset 3px 0 8px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+    inset -3px 0 8px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}

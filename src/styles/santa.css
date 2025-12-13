@@ -1,0 +1,5 @@
+.santa { position: absolute; right: -120px; bottom: 12%; transform: translateY(50%); z-index: 3; cursor: pointer; }
+.santa-svg { width: 120px; height: 140px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.35)); }
+.santa-sign { margin-top: 6px; background: #f7f7f7; color: #0f172a; padding: 6px 10px; border-radius: 8px; border: 2px solid #d1d5db; box-shadow: 0 8px 18px rgba(0,0,0,0.25); font-family: var(--font-heading); font-weight: 700; }
+@media (max-width: 860px) { .santa { right: -80px; bottom: 10%; } .santa-svg { width: 96px; height: 114px; } }
+@media (max-width: 640px) { .santa { position: static; margin-top: 12px; display: grid; place-items: center; } }

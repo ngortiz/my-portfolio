@@ -1,0 +1,157 @@
+.skills-ribbon-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 12;
+}
+
+.skills-ribbon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Decorative Bow */
+.ribbon-bow {
+  position: relative;
+  width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bow-center {
+  position: absolute;
+  width: 24px;
+  height: 28px;
+  background: linear-gradient(180deg, 
+    color-mix(in oklab, var(--christmas-red) 100%, white 20%) 0%,
+    var(--christmas-red) 50%,
+    color-mix(in oklab, var(--christmas-red) 100%, black 20%) 100%
+  );
+  border-radius: 6px;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.bow-left,
+.bow-right {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(ellipse,
+    color-mix(in oklab, var(--christmas-red) 100%, white 15%) 0%,
+    var(--christmas-red) 50%,
+    color-mix(in oklab, var(--christmas-red) 100%, black 15%) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bow-left {
+  left: 0;
+  transform: rotate(-20deg);
+}
+
+.bow-right {
+  right: 0;
+  transform: rotate(20deg);
+}
+
+/* Ribbon tails */
+.bow-center::before,
+.bow-center::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(180deg,
+    var(--christmas-red) 0%,
+    color-mix(in oklab, var(--christmas-red) 100%, black 20%) 100%
+  );
+  box-shadow: 
+    inset 1px 0 2px rgba(255, 255, 255, 0.2),
+    inset -1px 0 2px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.bow-center::before {
+  left: -8px;
+  transform: rotate(-10deg);
+}
+
+.bow-center::after {
+  right: -8px;
+  transform: rotate(10deg);
+}
+
+/* Text Label */
+.ribbon-text {
+  font-family: var(--font-decorative);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--christmas-gold);
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 0 40px rgba(255, 215, 0, 0.3);
+  letter-spacing: 1px;
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 40px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 60px rgba(255, 215, 0, 0.5);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ribbon-bow {
+    width: 70px;
+    height: 45px;
+  }
+  
+  .bow-center {
+    width: 20px;
+    height: 24px;
+  }
+  
+  .bow-left,
+  .bow-right {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .ribbon-text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ribbon-text {
+    font-size: 24px;
+  }
+}

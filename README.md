@@ -1,6 +1,8 @@
 # 🎄 Nidia Ortiz - Portafolio Navideño
 
-¡Bienvenid@ a mi portafolio interactivo con temática navideña! Este proyecto muestra mis habilidades como Desarrolladora de Software a través de una experiencia web festiva, animada y responsiva.
+¡Bienvenid@ a mi portafolio interactivo con temática navideña! Este proyecto muestra mis habilidades como Desarrolladora de Software a través de una experiencia web festiva, animada y responsiva. 
+
+Url: https://main.durservhk0673.amplifyapp.com/
 
 ![Estado](https://img.shields.io/badge/Estado-En_Vivo-success)
 

@@ -54,7 +54,6 @@ export default function App() {
          
           Soy <strong>Desarrolladora de Software</strong> con foco en <strong>Frontend</strong>, especializada en el desarrollo de aplicaciones web utilizando React y TypeScript. He desarrollado proyectos orientados a negocio, incluyendo plataformas de Ecommerce, Sistemas de Adopción de Mascotas y Plataformas Web para Aprendizaje de Inglés. En estos proyectos he trabajado en la construcción de interfaces interactivas, manejo de estado, consumo de APIs y flujos completos de usuario. Actualmente amplío mis habilidades hacia <strong>Backend</strong>, utilizando NestJS, TypeORM y PostgreSQL, e integrando servicios de AWS.
         </motion.p>
-        <Contact />
       </header>
 
       <main className="main">
@@ -63,6 +62,8 @@ export default function App() {
 
         <section id="proyectos" style={{ marginTop: 12 }} />
       </main>
+
+      <Contact />
 
       <AnimatePresence>
         {skillsOpen && (

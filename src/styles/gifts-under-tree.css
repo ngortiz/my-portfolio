@@ -95,7 +95,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .gifts-container {
-    margin: -90px auto 30px;
+    margin: -90px auto 10px;
   }
   
   .gifts-grid {

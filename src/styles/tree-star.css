@@ -3,7 +3,7 @@
   top: -2%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 15;
+  z-index: 50;
 }
 
 .tree-star {
@@ -20,6 +20,8 @@
   filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))
           drop-shadow(0 0 40px rgba(255, 215, 0, 0.5));
   transition: all 0.3s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .star-icon {

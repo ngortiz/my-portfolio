@@ -22,6 +22,8 @@
   transition: all 0.3s ease;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
 .star-icon {
@@ -69,6 +71,7 @@ margin-top: 40%;
 }
 
 /* Tooltip */
+/* Tooltip */
 .star-tooltip {
   position: absolute;
   top: 85px;
@@ -82,7 +85,8 @@ margin-top: 40%;
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);

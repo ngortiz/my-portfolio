@@ -4,7 +4,6 @@ import '../styles/tree-star.css';
 
 export default function TreeStar() {
   const handleOpenCV = () => {
-    // Abrir el PDF directamente en una nueva pestaña
     window.open('/CV.pdf', '_blank');
   };
 
@@ -20,9 +19,11 @@ export default function TreeStar() {
         stiffness: 200
       }}
     >
-      <motion.button
+      <motion.a
+        href="/CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="tree-star"
-        onClick={handleOpenCV}
         whileHover={{ 
           scale: 1.2, 
           rotate: 15,
@@ -36,9 +37,9 @@ export default function TreeStar() {
         </svg>
         
         <div className="cv-text">CV</div>
-      </motion.button>
+      </motion.a>
       
-      <div className="star-tooltip">Ver CV</div>
+      <div className="star-tooltip" onClick={handleOpenCV}>Ver CV</div>
     </motion.div>
   );
 }

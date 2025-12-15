@@ -130,5 +130,14 @@ margin-top: 40%;
   .star-tooltip {
     font-size: 12px;
     padding: 6px 12px;
+    top: auto;
+    bottom: 110%;
+  }
+
+  .star-tooltip::before {
+    bottom: auto;
+    top: 100%;
+    border-bottom-color: transparent;
+    border-top-color: rgba(10, 22, 40, 0.95);
   }
 }

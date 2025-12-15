@@ -14,19 +14,16 @@ export default function TreeStar() {
 
   const handleOpenCV = (e?: React.MouseEvent) => {
     if (isMobile) {
-      // En móvil forzamos la descarga
+      // En móvil forzamos la descarga creando un link temporal
+      // Quitamos target="_blank" para evitar problemas con bloqueadores de popups en móviles
       const link = document.createElement('a');
       link.href = '/CV.pdf';
       link.download = 'CV_Nidia_Ortiz.pdf';
-      link.target = '_blank';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } else {
-      // En escritorio abrimos en nueva pestaña (comportamiento por defecto del enlace)
-      // No es necesario hacer nada extra si es un click en el enlace <a>
       if (!e) {
-        // Si viene del tooltip (que no es un enlace), abrimos ventana
         window.open('/CV.pdf', '_blank');
       }
     }
@@ -47,10 +44,10 @@ export default function TreeStar() {
       <motion.a
         href="/CV.pdf"
         {...(isMobile ? { download: "CV_Nidia_Ortiz.pdf" } : {})}
-        target="_blank"
+        target={isMobile ? "_self" : "_blank"}
         rel="noopener noreferrer"
         className="tree-star"
-        onClick={(e) => isMobile && handleOpenCV(e)} // En móvil interceptamos para asegurar descarga
+        onClick={(e) => isMobile && handleOpenCV(e)}
         whileHover={{ 
           scale: 1.2, 
           rotate: 15,
@@ -66,7 +63,25 @@ export default function TreeStar() {
         <div className="cv-text">CV</div>
       </motion.a>
       
-      <div className="star-tooltip" onClick={() => handleOpenCV()}>Ver CV</div>
+      {/* Tooltip para Desktop */}
+      <div className="star-tooltip desktop-only" onClick={() => handleOpenCV()}>Ver CV</div>
+
+      {/* Botón explícito para Móvil */}
+      <motion.button 
+        className="mobile-download-btn mobile-only"
+        onClick={(e) => handleOpenCV(e)}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Descargar CV
+      </motion.button>
     </motion.div>
   );
 }

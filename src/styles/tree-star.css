@@ -120,6 +120,38 @@ margin-top: 40%;
   }
 }
 
+/* Mobile Download Button */
+.mobile-download-btn {
+  position: absolute;
+  bottom: 60%;
+    left: 68%;
+  transform: translateX(-50%);
+  background: var(--christmas-gold);
+ color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 60;
+}
+
+.mobile-download-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Visibility Utilities */
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
 /* Responsive */
 @media (max-width: 768px) {
   .tree-star {
@@ -131,17 +163,6 @@ margin-top: 40%;
     font-size: 20px;
   }
   
-  .star-tooltip {
-    font-size: 12px;
-    padding: 6px 12px;
-    top: auto;
-    bottom: 110%;
-  }
-
-  .star-tooltip::before {
-    bottom: auto;
-    top: 100%;
-    border-bottom-color: transparent;
-    border-top-color: rgba(10, 22, 40, 0.95);
-  }
+  .mobile-only { display: flex; }
+  .desktop-only { display: none; }
 }

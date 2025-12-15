@@ -90,7 +90,6 @@ pnpm-lock.yaml
 
 # Gatsby files
 .cache/
-public
 
 # Serverless directories
 .serverless/

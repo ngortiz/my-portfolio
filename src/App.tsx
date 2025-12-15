@@ -52,7 +52,7 @@ export default function App() {
           transition={{ duration: 0.8, delay: 0.15 }}
         >
          
-          Soy <strong>Desarrolladora de Software</strong> con foco en <strong>Frontend</strong>, especializada en el desarrollo de aplicaciones web utilizando React y TypeScript. He desarrollado proyectos orientados a negocio, incluyendo plataformas de Ecommerce, sistemas de adopción de mascotas y plataformas web para aprendizaje de inglés. En estos proyectos he trabajado en la construcción de interfaces interactivas, manejo de estado, consumo de APIs REST y flujos completos de usuario. Actualmente amplío mis habilidades hacia <strong>Backend</strong>, utilizando NestJS, TypeORM y PostgreSQL, e integrando servicios de AWS.
+          Soy <strong>Desarrolladora de Software</strong> con foco en <strong>Frontend</strong>, especializada en el desarrollo de aplicaciones web utilizando React y TypeScript. He desarrollado proyectos orientados a negocio, incluyendo plataformas de Ecommerce, Sistemas de Adopción de Mascotas y Plataformas Web para Aprendizaje de Inglés. En estos proyectos he trabajado en la construcción de interfaces interactivas, manejo de estado, consumo de APIs y flujos completos de usuario. Actualmente amplío mis habilidades hacia <strong>Backend</strong>, utilizando NestJS, TypeORM y PostgreSQL, e integrando servicios de AWS.
         </motion.p>
         <Contact />
       </header>

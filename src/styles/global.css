@@ -169,3 +169,29 @@ body::before {
     padding: 0;
   }
 }
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.6;
+  }
+  
+  .header {
+    padding: 20px 20px 10px;
+    text-align: center;
+  }
+  
+  .main {
+    padding: 10px 10px 80px;
+  }
+  
+  .contact-section {
+    margin: 30px auto 0;
+    max-width: 100%;
+  }
+}

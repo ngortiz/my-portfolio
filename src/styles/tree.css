@@ -132,3 +132,9 @@
 .tree-gifts { position: absolute; inset: 0; z-index: var(--layer-baubles); pointer-events: none; }
 .gift-slot { position: absolute; transform: translate(-50%, -50%); }
 .gift-slot .gift { pointer-events: auto; }
+
+@media (max-width: 768px) {
+  .tree-image {
+    max-height: 50vh;
+  }
+}

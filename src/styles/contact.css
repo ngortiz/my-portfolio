@@ -96,29 +96,18 @@
 }
 
 @media (max-width: 640px) {
-  .contact-container {
-    padding: 32px 24px;
-  }
-  
-  .contact-title {
-    font-size: 32px;
-  }
-  
-  .contact-subtitle {
-    font-size: 16px;
-  }
-  
   .social-links {
-    gap: 16px;
+    gap: 12px;
   }
   
   .social-link {
-    min-width: 120px;
-    padding: 20px;
+    min-width: 100px;
+    padding: 16px;
+    flex: 1;
   }
   
   .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 }

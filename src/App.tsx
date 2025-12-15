@@ -52,8 +52,9 @@ export default function App() {
           transition={{ duration: 0.8, delay: 0.15 }}
         >
          
-          Soy <strong>Desarrolladora de Software</strong> autodidacta con 2 años y medio de aprendizaje continuo a través de tutoriales en YouTube, cursos de Udemy y desarrollo de proyectos personales. Especializada en <strong>Desarrollo Frontend</strong> utilizando React, TypeScript, JavaScript HTML y CSS, con una sólida capacidad para construir interfaces de usuario interactivas y eficientes. Actualmente profundizando en el área de <strong>Backend</strong> con NestJS, TypeORM, PostgreSQL y servicios de AWS.
+          Soy <strong>Desarrolladora de Software</strong> con foco en <strong>Frontend</strong>, especializada en el desarrollo de aplicaciones web utilizando React y TypeScript. He desarrollado proyectos orientados a negocio, incluyendo plataformas de Ecommerce, sistemas de adopción de mascotas y plataformas web para aprendizaje de inglés. En estos proyectos he trabajado en la construcción de interfaces interactivas, manejo de estado, consumo de APIs REST y flujos completos de usuario. Actualmente amplío mis habilidades hacia <strong>Backend</strong>, utilizando NestJS, TypeORM y PostgreSQL, e integrando servicios de AWS.
         </motion.p>
+        <Contact />
       </header>
 
       <main className="main">
@@ -61,8 +62,6 @@ export default function App() {
         <GiftsUnderTree skills={["React","TypeScript","JavaScript","HTML","CSS","NestJS","TypeORM","PostgreSQL","AWS"]} />
 
         <section id="proyectos" style={{ marginTop: 12 }} />
-
-        <Contact />
       </main>
 
       <AnimatePresence>

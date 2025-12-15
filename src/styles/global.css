@@ -97,10 +97,11 @@ body::before {
   font-size: 20px; 
   line-height: 1.8;
   color: var(--text-muted); 
-  font-family: var(--font-body);
+  font-family: var(--font-philosophical);
   font-weight: 400;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.1);
   letter-spacing: 0.4px;
+  text-align: justify;
 }
 
 .subtitle strong {
@@ -113,3 +114,58 @@ body::before {
 .main { display: grid; justify-items: center; align-content: start; gap: 24px; padding: 10px 20px 40px; position: relative; z-index: 2; }
 
 .baubles-row { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+@media (min-width: 1024px) {
+  .page {
+    grid-template-rows: auto auto;
+    grid-template-columns: 50% 50%;
+    align-items: start;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .header {
+    text-align: right;
+    padding: 60px 10px 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: auto;
+    grid-column: 1 / 2;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .title {
+    font-size: 48px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .subtitle {
+    margin: 24px 0 0;
+    font-size: 18px;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .main {
+    height: auto;
+    align-content: center;
+    padding: 40px 20px 40px 10px;
+    overflow: visible;
+    justify-items: start;
+    grid-column: 2 / 3;
+  }
+  
+  /* Contact section fits in the left column naturally now */
+  .contact-section {
+    width: 100%;
+    margin: 40px 0 0;
+    padding: 0;
+  }
+}

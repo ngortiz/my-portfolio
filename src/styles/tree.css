@@ -1,8 +1,10 @@
 .tree-wrapper { width: 100%; display: grid; place-items: center; }
-.tree { position: relative; width: min(800px, 90vw); }
+.tree { position: relative; width: fit-content; max-width: min(800px, 90vw); }
 .tree-image { 
-  width: 100%; 
+  width: auto; 
+  max-width: 100%;
   height: auto; 
+  max-height: 65vh;
   display: block; 
   /* Ocultar la estrella original del árbol */
   clip-path: inset(8% 0 0 0);

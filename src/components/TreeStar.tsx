@@ -3,8 +3,33 @@ import { motion } from 'framer-motion';
 import '../styles/tree-star.css';
 
 export default function TreeStar() {
-  const handleOpenCV = () => {
-    window.open('/CV.pdf', '_blank');
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleOpenCV = (e?: React.MouseEvent) => {
+    if (isMobile) {
+      // En móvil forzamos la descarga
+      const link = document.createElement('a');
+      link.href = '/CV.pdf';
+      link.download = 'CV_Nidia_Ortiz.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // En escritorio abrimos en nueva pestaña (comportamiento por defecto del enlace)
+      // No es necesario hacer nada extra si es un click en el enlace <a>
+      if (!e) {
+        // Si viene del tooltip (que no es un enlace), abrimos ventana
+        window.open('/CV.pdf', '_blank');
+      }
+    }
   };
 
   return (
@@ -21,9 +46,11 @@ export default function TreeStar() {
     >
       <motion.a
         href="/CV.pdf"
+        {...(isMobile ? { download: "CV_Nidia_Ortiz.pdf" } : {})}
         target="_blank"
         rel="noopener noreferrer"
         className="tree-star"
+        onClick={(e) => isMobile && handleOpenCV(e)} // En móvil interceptamos para asegurar descarga
         whileHover={{ 
           scale: 1.2, 
           rotate: 15,
@@ -39,7 +66,7 @@ export default function TreeStar() {
         <div className="cv-text">CV</div>
       </motion.a>
       
-      <div className="star-tooltip" onClick={handleOpenCV}>Ver CV</div>
+      <div className="star-tooltip" onClick={() => handleOpenCV()}>Ver CV</div>
     </motion.div>
   );
 }
